@@ -93,5 +93,59 @@ namespace worktimemanager
             Info.Default.gehalt = Convert.ToDouble(textBox2.Text);
             Info.Default.Save();
         }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            OleDbConnection con = new OleDbConnection();
+            OleDbCommand cmd = new OleDbCommand();
+
+            string workingDirectory = Environment.CurrentDirectory;
+            string dBbez = Directory.GetParent(workingDirectory).Parent.FullName + "\\worktime.mdb";
+
+            con.ConnectionString = "Provider = Microsoft.Jet.OLEDB.4.0;" + "Data Source = " + dBbez;
+            cmd.Connection = con;
+            cmd.CommandText = "DELETE * from Main";
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                cmd.Connection = con;
+                cmd.CommandText = "INSERT INTO Main ([date],[gehalt]) VALUES (@date,@gehalt)";
+                cmd.Parameters.Add("@date", OleDbType.VarChar, 40).Value = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                cmd.Parameters.Add("@gehalt", OleDbType.VarChar, 40).Value = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OleDbConnection con = new OleDbConnection();
+            OleDbCommand cmd = new OleDbCommand();
+
+            string workingDirectory = Environment.CurrentDirectory;
+            string dBbez = Directory.GetParent(workingDirectory).Parent.FullName + "\\worktime.mdb";
+
+            con.ConnectionString = "Provider = Microsoft.Jet.OLEDB.4.0;" + "Data Source = " + dBbez;
+            cmd.Connection = con;
+            cmd.CommandText = "DELETE * from Main";
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                cmd.Connection = con;
+                cmd.CommandText = "INSERT INTO Main ([date],[gehalt]) VALUES (@date,@gehalt)";
+                cmd.Parameters.Add("@date", OleDbType.VarChar, 40).Value = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                cmd.Parameters.Add("@gehalt", OleDbType.VarChar, 40).Value = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
     }
 }

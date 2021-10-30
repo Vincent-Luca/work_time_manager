@@ -30,10 +30,10 @@ namespace worktimemanager
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -42,6 +42,7 @@ namespace worktimemanager
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,17 +59,6 @@ namespace worktimemanager
             this.dataGridView1.Size = new System.Drawing.Size(641, 260);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(285, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 42);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Logout";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Date";
@@ -83,6 +73,17 @@ namespace worktimemanager
             // 
             this.Column3.HeaderText = "MoneyEarned";
             this.Column3.Name = "Column3";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(285, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 42);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Logout";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -157,12 +158,24 @@ namespace worktimemanager
             this.label3.Text = "new amount in €";
             this.label3.Visible = false;
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(134, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(145, 38);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Save";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button3);
@@ -175,6 +188,7 @@ namespace worktimemanager
             this.Controls.Add(this.dataGridView1);
             this.Name = "Main";
             this.Text = "Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -196,5 +210,6 @@ namespace worktimemanager
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button4;
     }
 }
